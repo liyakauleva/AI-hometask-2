@@ -45,6 +45,7 @@ class AuthServiceTest {
         Authentication auth = new Authentication();
         auth.setEmail("test@example.com");
         auth.setPasswordHash("hashed");
+        auth.setName("Test");
         when(authRepository.findByEmail("test@example.com")).thenReturn(Optional.of(auth));
         when(passwordEncoder.matches("password", "hashed")).thenReturn(true);
         when(jwtUtil.generateToken(anyMap(), eq("test@example.com"))).thenReturn("token");

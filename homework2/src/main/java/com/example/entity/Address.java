@@ -12,5 +12,9 @@ public class Address {
     private String zipcode;
 
     @Embedded
+    @AttributeOverrides({
+        @AttributeOverride(name = "lat", column = @Column(name = "geo_lat")),
+        @AttributeOverride(name = "lng", column = @Column(name = "geo_lng"))
+    })
     private Geo geo;
 } 
